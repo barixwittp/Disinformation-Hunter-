@@ -57,10 +57,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Content is required" }, { status: 400 })
     }
 
-    const apiKey = "AIzaSyAt-DheHJ9saF0g8MwkTh5Cs9K6xGevFyE"
+    const apiKey = process.env.GEMINI_API_KEY
 
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`,
       {
         method: "POST",
         headers: {
